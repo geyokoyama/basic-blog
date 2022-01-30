@@ -1,4 +1,10 @@
-<h1>About</h1>
+<div class="container">
+    <h2 class="display-4 text-info">About</h2>
 
-<%= link_to 'Articles listing', articles_path %>
-<%= link_to 'Home', root_path %>
+    <div class="row">
+      <div class="col-lg-8">
+        <%= link_to 'Home', root_path, class: 'btn btn-outline-info' %>
+        <%= link_to 'Articles listing', articles_path, class: 'btn btn-outline-info' %>
+      </div>
+    </div>
+</div>

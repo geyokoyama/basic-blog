@@ -1,6 +1,7 @@
-<h1>Editing Article</h1>
+<div class="container">
+  <h2 class="display-4 text-info"><%= @article.title %> - Edit</h2>
 
-<%= render 'form', article: @article %>
-
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>
+  <div class="row">
+    <%= render 'form', article: @article %>
+  </div>
+</div>
