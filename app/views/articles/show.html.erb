@@ -4,7 +4,7 @@
   <div class="col-lg-8">
     <div class="my-4">
       <p class="text-muted m-0"><span>posted:&nbsp;<%= @article.created_at.strftime("%Y-%m-%d") %></span>&nbsp;&bull;&nbsp;<span>updated:&nbsp;<%= @article.updated_at.strftime("%Y-%m-%d") %></span></p>
-      <p class="text-muted m-0">By&nbsp;<%= "George Yokoyama" %></p>
+      <p class="text-muted m-0">By&nbsp;<%= @article.user.username %></p>
     </div>
 
     <div class="my-4">
