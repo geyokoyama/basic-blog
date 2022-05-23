@@ -1,0 +1,31 @@
+<%= form_with(model: user, local:true) do |form| %>
+  <div class="col-lg-8">
+    <%= render 'shared/errors', obj: @user %>
+
+    <div class="card my-4 bg-light">
+      <div class="card-body">
+
+        <div class="field mb-3">
+          <%= form.label :username, class: 'form-label' %>
+          <%= form.text_field :username, class: 'form-control', placeholder: 'Enter a username' %>
+        </div>
+
+        <div class="field mb-3">
+          <%= form.label :email, class: 'form-label' %>
+          <%= form.email_field :email, class: 'form-control', placeholder: 'Enter your email address' %>
+        </div>
+
+        <div class="field mb-3">
+          <%= form.label :password, class: 'form-label' %>
+          <%= form.password_field :password, class: 'form-control', placeholder: 'Choose your password' %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit class: 'btn btn-outline-info' %>
+          <%= link_to 'Cancel and go to Articles', articles_path, class: 'btn btn-outline-danger', data: { confirm: 'Are you sure you don\'t want to signup?' } %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<% end %>
