@@ -1,6 +1,6 @@
 <%= form_with(model: user, local:true) do |form| %>
   <div class="col-lg-8">
-    <%= render 'shared/errors', obj: @user %>
+    <%= render 'shared/errors', obj: user %>
 
     <div class="card my-4 bg-light">
       <div class="card-body">
@@ -21,7 +21,7 @@
         </div>
 
         <div class="actions">
-          <%= form.submit "Sign up", class: 'btn btn-outline-info' %>
+          <%= form.submit(@user.new_record? ? "Sign up" : "Update account", class: 'btn btn-outline-info') %>
         </div>
       </div>
     </div>
