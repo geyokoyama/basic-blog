@@ -1,0 +1,24 @@
+<h2 class="display-5 text-info">Basic Blog Members</h2>
+
+<% @users.each do |user| %>
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class="card my-4 text-center">
+        <div class="card-body">
+          <h3 class="card-title my-4"><%= link_to user.username, user, class: "text-decoration-none text-info hover-underline" %></h5>
+          <p class="card-subtitle mb-2"><%= link_to gravatar_for(user, size: 200), user  %></p>
+          <p class="card-text text-muted"><%= pluralize(user.articles.count, "article") %></p>
+          <%= link_to 'View profile', user, class: "btn btn-outline-info" %></td>
+          <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-outline-warning" %></td>
+        </div>
+        <div class="card-footer text-muted">
+          <p class="m-0">
+            <small>
+              <span>Joined:&nbsp;<%= user.created_at.strftime("%Y-%m-%d") %></span>
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
