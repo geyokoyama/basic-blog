@@ -21,7 +21,10 @@
         </div>
 
         <div class="actions">
-          <%= form.submit(@user.new_record? ? "Sign up" : "Update account", class: 'btn btn-outline-info') %>
+          <%= form.submit(user.new_record? ? "Sign up" : "Update account", class: 'btn btn-outline-info') %>
+          <% if user.id? %>
+            <%= link_to 'Cancel', user, class: 'btn btn-outline-danger', data: { confirm: 'Cancel updating your account?' } %>
+          <% end %>
         </div>
       </div>
     </div>

@@ -1,0 +1,11 @@
+<h2 class="display-4 text-info text-center"><%= @user.username %></h2>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="my-4">
+      <%= gravatar_for @user, size: 200 %>
+    </div>
+  </div>
+
+  <%= render 'shared/list_articles', articles: @articles %>
+</div>
