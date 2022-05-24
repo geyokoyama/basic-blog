@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to articles_url, notice: "Welcome to the Basic Blog #{ @user.username }. You have successfully signed up!" }
+        format.html { redirect_to @user, notice: "Welcome to the Basic Blog #{ @user.username }. You have successfully signed up!" }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to articles_url, notice: "Your account information has been updated." }
+        format.html { redirect_to @user, notice: "Your account information has been updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
