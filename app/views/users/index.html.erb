@@ -1,5 +1,9 @@
 <h2 class="display-5 text-info text-center">Basic Blog Members</h2>
 
+<div class="flickr_pagination text-center mt-4">
+  <%= will_paginate @users, :container => false %>
+</div>
+
 <% @users.each do |user| %>
   <div class="row">
     <div class="col-lg-8 mx-auto">
@@ -22,3 +26,7 @@
     </div>
   </div>
 <% end %>
+
+<div class="flickr_pagination text-center mb-4">
+  <%= will_paginate @users, :container => false %>
+</div>

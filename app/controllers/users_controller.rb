@@ -2,11 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ edit update show ]
 
   def index
-    @users = User.all
+    @users = User.page(params[:page])
   end
 
   def show
-    @articles = @user.articles
+    @articles = @user.articles.page(params[:page]).order('created_at')
   end
 
   def new
