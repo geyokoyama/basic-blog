@@ -16,12 +16,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: "Welcome to the Basic Blog #{ @user.username }. You have successfully signed up!" }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    if @user.save
+      redirect_to @user, notice: "Welcome to the Basic Blog #{ @user.username }. You have successfully signed up!"
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -29,12 +27,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: "Your account information has been updated." }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-      end
+    if @user.update(user_params)
+      redirect_to @user, notice: "Your account information has been updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
