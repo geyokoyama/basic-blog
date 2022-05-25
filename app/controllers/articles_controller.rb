@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
   # POST /articles or /articles.json
   def create
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = current_user
     if @article.save
       redirect_to article_url(@article), notice: "Article was successfully created."
     else
@@ -33,6 +33,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1 or /articles/1.json
   def update
     if @article.update(article_params)
+    session[:user_id] = @user.id
       redirect_to article_url(@article), notice: "Article was successfully updated."
     else
       render :edit, status: :unprocessable_entity
