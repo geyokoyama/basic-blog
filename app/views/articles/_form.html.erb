@@ -1,29 +1,27 @@
 <%= form_with(model: article, local:true) do |form| %>
-  <div class="col-lg-8">
-    <%= render 'shared/errors', obj: article %>
+  <%= render 'shared/errors', obj: article %>
 
-    <div class="card my-4 bg-light">
-      <div class="card-body">
+  <div class="card my-4 bg-light">
+    <div class="card-body">
 
-        <div class="field mb-3">
-          <%= form.label :title, class: 'form-label' %>
-          <%= form.text_field :title, class: 'form-control', placeholder: 'Title' %>
-        </div>
+      <div class="field mb-3">
+        <%= form.label :title, class: 'form-label' %>
+        <%= form.text_field :title, class: 'form-control', placeholder: 'Title' %>
+      </div>
 
-        <div class="field mb-3">
-          <%= form.label :description, class: 'form-label' %>
-          <%= form.text_area :description, rows: 8, class: 'form-control', placeholder: 'Description' %>
-        </div>
+      <div class="field mb-3">
+        <%= form.label :description, class: 'form-label' %>
+        <%= form.text_area :description, rows: 8, class: 'form-control', placeholder: 'Description' %>
+      </div>
 
-        <div class="actions">
-          <%= form.submit class: 'btn btn-outline-info' %>
-          <%= link_to 'Go to Articles', articles_path, class: 'btn btn-outline-danger', data: { confirm: 'Your work will be discarded. Are you sure you want to leave?' } %>
-          <% if article.id? %>
-            <%= link_to 'Show Article', article, class: 'btn btn-outline-danger', data: { confirm: 'Your work will be discarded. Are you sure you want to leave?' } %>
-          <% end %>
-        </div>
+      <div class="actions">
+        <%= form.submit class: 'btn btn-outline-info' %>
+        <%= link_to 'Go to Articles', articles_path, class: 'btn btn-outline-danger', data: { confirm: 'Your work will be discarded. Are you sure you want to leave?' } %>
+        <% if article.id? %>
+          <%= link_to 'Show Article', article, class: 'btn btn-outline-danger', data: { confirm: 'Your work will be discarded. Are you sure you want to leave?' } %>
+        <% end %>
       </div>
     </div>
-
   </div>
+
 <% end %>

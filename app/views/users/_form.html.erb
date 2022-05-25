@@ -1,33 +1,31 @@
 <%= form_with(model: user, local:true) do |form| %>
-  <div class="col-lg-8">
-    <%= render 'shared/errors', obj: user %>
+  <%= render 'shared/errors', obj: user %>
 
-    <div class="card my-4 bg-light">
-      <div class="card-body">
+  <div class="card my-4 bg-light">
+    <div class="card-body">
 
-        <div class="field mb-3">
-          <%= form.label :username, class: 'form-label' %>
-          <%= form.text_field :username, class: 'form-control', placeholder: 'Enter a username' %>
-        </div>
+      <div class="field mb-3">
+        <%= form.label :username, class: 'form-label' %>
+        <%= form.text_field :username, class: 'form-control', placeholder: 'Enter a username' %>
+      </div>
 
-        <div class="field mb-3">
-          <%= form.label :email, class: 'form-label' %>
-          <%= form.email_field :email, class: 'form-control', placeholder: 'Enter your email address' %>
-        </div>
+      <div class="field mb-3">
+        <%= form.label :email, class: 'form-label' %>
+        <%= form.email_field :email, class: 'form-control', placeholder: 'Enter your email address' %>
+      </div>
 
-        <div class="field mb-3">
-          <%= form.label :password, class: 'form-label' %>
-          <%= form.password_field :password, class: 'form-control', placeholder: 'Choose your password' %>
-        </div>
+      <div class="field mb-3">
+        <%= form.label :password, class: 'form-label' %>
+        <%= form.password_field :password, class: 'form-control', placeholder: 'Choose your password' %>
+      </div>
 
-        <div class="actions">
-          <%= form.submit(user.new_record? ? "Sign up" : "Update account", class: 'btn btn-outline-info') %>
-          <% if user.id? %>
-            <%= link_to 'Cancel', user, class: 'btn btn-outline-danger', data: { confirm: 'Cancel updating your account?' } %>
-          <% end %>
-        </div>
+      <div class="actions">
+        <%= form.submit(user.new_record? ? "Sign up" : "Update account", class: 'btn btn-outline-info') %>
+        <% if user.id? %>
+          <%= link_to 'Cancel', user, class: 'btn btn-outline-danger', data: { confirm: 'Cancel updating your account?' } %>
+        <% end %>
       </div>
     </div>
-
   </div>
+
 <% end %>

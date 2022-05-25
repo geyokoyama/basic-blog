@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         format.html { redirect_to user, notice: "You're signed in!" }
       else
         flash.now[:alert] = "Could not log in. Please try again."
-        format.html { render :new, status: :unprocessable_entity, alert: "Could not log in." }
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end

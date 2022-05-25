@@ -1,8 +1,8 @@
-<% if notice %>
+<% flash.each do |name, msg| %>
   <div class="col-lg-8 mx-auto">
-      <p id="notice" class="alert alert-success alert-dismissible fade show" role="alert">
-        <%= notice %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </p>
+    <div id="flash_notification" class="<%= flash_color(name) %>" role="alert">
+      <%= msg %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
   </div>
 <% end %>

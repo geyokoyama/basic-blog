@@ -1,16 +1,8 @@
-<h2 class="display-5 text-info">Log in</h2>
+<div class="col-lg-8 mx-auto">
+  <h2 class="display-5 text-info">Log in</h2>
 
-<div class="row">
-  <%= form_with(scope: :session, url: login_path, local:true) do |form| %>
-    <div class="col-lg-8">
-
-      <% if alert.present? %>
-        <div id="error_explanation" class="alert alert-danger alert-dismissible fade show" role="alert">
-          <%= alert %>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      <% end %>
-
+  <div class="row">
+    <%= form_with(scope: :session, url: login_path, local:true) do |form| %>
       <div class="card my-4 bg-light">
         <div class="card-body">
           <div class="field mb-3">
@@ -28,7 +20,6 @@
           </div>
         </div>
       </div>
-
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

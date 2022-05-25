@@ -1,27 +1,29 @@
-<h2 class="display-4 text-info text-center"><%= @user.username %></h2>
+<div class="col-lg-8 mx-auto">
+  <h2 class="display-4 text-info text-center"><%= @user.username %></h2>
 
-<div class="row">
-  <div class="col-lg-12 text-center">
-    <div class="my-4">
-      <%= gravatar_for @user, size: 200 %>
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <div class="my-4">
+        <%= gravatar_for @user, size: 200 %>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-lg-12">
-    <div class="my-2 text-center">
-      <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-warning" %>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="my-2 text-center">
+        <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-warning" %>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="flickr_pagination text-center mt-4">
-  <%= will_paginate @articles, :container => false %>
-</div>
+  <div class="flickr_pagination text-center mt-4">
+    <%= will_paginate @articles, :container => false %>
+  </div>
 
-<%= render 'shared/articles', articles: @articles %>
+  <%= render 'shared/articles', articles: @articles %>
 
-<div class="flickr_pagination text-center mb-4">
-  <%= will_paginate @articles, :container => false %>
+  <div class="flickr_pagination text-center mb-4">
+    <%= will_paginate @articles, :container => false %>
+  </div>
 </div>
