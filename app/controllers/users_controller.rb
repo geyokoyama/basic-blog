@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ edit update show ]
-  before_action :require_user, only: %i[ edit update destroy ]
+  before_action :set_user, only: %i[ edit update show destroy ]
+  before_action :require_user, only: %i[ edit update ]
   before_action :require_same_user, only: %i[ edit update destroy ]
 
   def index
@@ -34,6 +34,12 @@ class UsersController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @user.destroy
+    session[:user_id] = nil
+    redirect_to root_path, notice: "Profile and all associated articles successfully deleted."
   end
 
   private
