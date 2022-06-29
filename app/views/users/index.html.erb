@@ -13,8 +13,13 @@
           <p class="card-subtitle mb-2"><%= link_to gravatar_for(user, size: 200), user  %></p>
           <p class="card-text text-muted"><%= pluralize(user.articles.count, "article") %></p>
           <%= link_to 'View profile', user, class: "btn btn-outline-info" %></td>
-          <% if logged_in? && user == current_user %>
-            <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-outline-warning" %></td>
+          <% if logged_in? %>
+            <% if user == current_user %>
+              <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-outline-warning" %></td>
+            <% end %>
+            <% if current_user.admin? %>
+              <%= link_to 'Delete user', user_path(user), method: :delete, class: "btn btn-outline-danger", data: { confirm: 'Are you sure you want to delete this user account and all associated articles? The action is not reversible!' } %></td>
+            <% end %>
           <% end %>
         </div>
         <div class="card-footer text-muted">

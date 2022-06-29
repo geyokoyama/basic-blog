@@ -35,7 +35,6 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1 or /articles/1.json
   def update
     if @article.update(article_params)
-    session[:user_id] = @user.id
       redirect_to article_url(@article), notice: "Article was successfully updated."
     else
       render :edit, status: :unprocessable_entity
@@ -58,7 +57,7 @@ class ArticlesController < ApplicationController
     end
 
     def require_same_user
-      unless current_user == @article.user
+      unless current_user == @article.user || current_user.admin?
         redirect_to @article, alert: "You can only edit or delete your own article."
       end
     end
