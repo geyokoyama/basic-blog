@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show ]
 
   def index
+    @categories = Category.page(params[:page]).order('created_at')
   end
 
   def new
