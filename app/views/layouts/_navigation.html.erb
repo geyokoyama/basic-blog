@@ -26,6 +26,21 @@
           </ul>
         </li>
 
+        <li class="nav-item dropdown">
+          <%= link_to 'Categories', "#", id: "navbarDropdown", role: "button", class: "nav-link dropdown-toggle", "data-bs-toggle": "dropdown", "aria-expanded": "false" %>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <%= link_to "View categories", categories_path, class: "dropdown-item" %>
+            </li>
+            <% if logged_in? && current_user.admin? %>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <%= link_to "Create new category", new_category_path, class: "dropdown-item"%>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+
         <li class="nav-item">
           <%= link_to "About", about_path, class: "nav-link" %>
         </li>
