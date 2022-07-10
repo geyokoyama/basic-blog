@@ -15,11 +15,50 @@ User.create([
   { username: "Admin User", email: "admin@user.com", password: "asdfASDF123" }
 ])
 
+Category.create([
+  { name: "Sports" },
+  { name: "Travel" },
+  { name: "Development" },
+  { name: "Tech" },
+  { name: "Books" },
+  { name: "Other" }
+])
+
 Article.create([
-  { title: "First Article", description: "First Description", user_id: 1 },
-  { title: "Second Article", description: "Second Description", user_id: 1 },
-  { title: "Third Article", description: "Third Description", user_id: 1 },
-  { title: "Fourth Article", description: "Fourth Description", user_id: 2 },
-  { title: "Fifth Article", description: "Fifth Description", user_id: 3 },
-  { title: "Sixth Article", description: "Sixth Description", user_id: 6 }
+  {
+    title: "First Article",
+    description: "First Description",
+    user_id: 1,
+    categories: Category.where(name: ['Sports', 'Travel'])
+  },
+  {
+    title: "Second Article",
+    description: "Second Description",
+    user_id: 1,
+    categories: Category.where(name: ['Sports', 'Development'])
+  },
+  {
+    title: "Third Article",
+    description: "Third Description",
+    user_id: 1,
+    categories: Category.where(name: ['Sports', 'Tech'])
+  },
+  {
+    title: "Fourth Article",
+    description: "Fourth Description",
+    user_id: 2,
+    categories: Category.where(name: ['Sports', 'Books'])
+  },
+  {
+    title: "Fifth Article",
+    description: "Fifth Description",
+    user_id: 3,
+    categories: Category.where(name: ['Sports', 'Other'])
+  },
+  {
+    title: "Sixth Article",
+    description: "Sixth Description",
+    user_id: 6,
+    categories: Category.where(name: ['Sports', 'Travel', 'Development'])
+  }
 ])
