@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /articles or /articles.json

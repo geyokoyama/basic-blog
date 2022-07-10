@@ -1,0 +1,23 @@
+<%= form_with(model: category, local:true) do |form| %>
+  <%= render 'shared/errors', obj: category %>
+
+  <div class="card my-4 bg-light">
+    <div class="card-body">
+
+      <div class="field mb-3">
+        <%= form.label :name, "Category", class: 'form-label' %>
+        <%= form.text_field :name, class: 'form-control', placeholder: 'Enter a category name' %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit class: 'btn btn-outline-info' %>
+        <% if !!category.id %>
+          <%= link_to 'Discard', category_path(category), class: 'btn btn-outline-warning', data: { confirm: 'Discard and return to category?' } %>
+        <% end %>
+        <%= link_to 'Cancel', categories_path, class: 'btn btn-outline-danger', data: { confirm: 'Cancel and return to category listing?' } %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+

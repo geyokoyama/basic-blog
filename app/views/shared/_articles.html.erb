@@ -4,6 +4,13 @@
       <div class="card my-4">
         <div class="card-body">
           <h3 class="card-title"><%= link_to article.title, article, class: "text-decoration-none text-info hover-underline" %></h5>
+          <div class="card-subtitle mb-2">
+            <% if article.categories.any? %>
+              <div class="my-1">
+                <%= render article.categories %>
+              </div>
+            <% end %>
+          </div>
           <p class="card-subtitle mb-2 text-muted">By&nbsp;<%= link_to article.user.username, article.user, class: "text-decoration-none text-muted hover-underline" %></p>
           <p class="card-text"><%= truncate(article.description, length: 100) %></p>
           <%= link_to 'View', article, class: "btn btn-outline-info" %></td>
